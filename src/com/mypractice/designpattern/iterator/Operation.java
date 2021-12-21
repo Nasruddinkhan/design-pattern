@@ -14,11 +14,14 @@ public class Operation {
 
         System.out.println(totalValues(numbers, no->true));
         System.out.println(totalValues(numbers, no->no%2 == 0));
-        System.out.println(totalValues(numbers, no->no%2 != 0));
+        System.out.println(totalValues(numbers, Operation::isOdd));
 
 
     }
 
+    public static boolean isOdd(int no){
+        return  no%2 != 0;
+    }
     private static int totalOddValues(List<Integer> numbers) {
         int toatal = 0;
         for (Integer no : numbers) {
