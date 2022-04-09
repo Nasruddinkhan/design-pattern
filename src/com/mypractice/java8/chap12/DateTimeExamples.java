@@ -32,10 +32,18 @@ public class DateTimeExamples {
     };
 
     public static void main(String[] args) {
+        System.out.println("start useOldDate ");
         useOldDate();
+        System.out.println("end useOldDate ");
+        System.out.println("start useLocalDate ");
         useLocalDate();
+        System.out.println("end useLocalDate ");
+        System.out.println("start useTemporalAdjuster ");
         useTemporalAdjuster();
+        System.out.println("end useTemporalAdjuster ");
+        System.out.println("start useDateFormatter ");
         useDateFormatter();
+        System.out.println("end useOldDate ");
     }
 
     private static void useOldDate() {
