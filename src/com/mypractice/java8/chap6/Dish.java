@@ -40,7 +40,7 @@ public class Dish {
     }
 
     public static final List<Dish> menu =
-            Arrays.asList( new Dish("pork", false, 800, Type.MEAT),
+            Arrays.asList( new Dish("mutton", false, 800, Type.MEAT),
                            new Dish("beef", false, 700, Type.MEAT),
                            new Dish("chicken", false, 400, Type.MEAT),
                            new Dish("french fries", true, 530, Type.OTHER),
