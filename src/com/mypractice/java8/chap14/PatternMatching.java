@@ -6,9 +6,12 @@ import java.util.function.Supplier;
 public class PatternMatching {
 
     public static void main(String[] args) {
-        simplify();
+        //simplify();
 
-        Expr e = new BinOp("+", new Number(5), new BinOp("*", new Number(3), new Number(4)));
+        Expr e = new BinOp("+", new Number(5),
+                new BinOp("*", new Number(3),
+                        new BinOp("*", new Number(3),
+                                new Number(4))));
         Integer result = evaluate(e);
         System.out.println(e + " = " + result);
     }

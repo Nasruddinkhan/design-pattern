@@ -21,7 +21,7 @@ public class Recursion {
     }
 
     public static long factorialRecursive(long n) {
-        return n == 1 ? 1 : n*factorialRecursive(n-1);
+        return n == 1 ? 1 : n * factorialRecursive(n-1);
     }
 
     public static long factorialStreams(long n){

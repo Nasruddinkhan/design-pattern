@@ -9,6 +9,7 @@ import com.mypractice.designpattern.adapterpattern.xpayimpl.XpayImpl;
  * When we used when existing class/interface does not match the one you need. An object
  * adapter can adapt the interface of its parent class
  */
+
 public class AdapterPatternTest {
     public static void main(String[] args) {
         Xpay xpay = new XpayImpl();
