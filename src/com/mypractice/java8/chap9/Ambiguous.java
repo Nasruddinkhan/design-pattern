@@ -6,14 +6,14 @@ public class Ambiguous{
         new C().hello();
     }
 
-    static interface A{
-        public default void hello() {
+    interface A{
+        default void hello() {
             System.out.println("Hello from A");
         }
     }
 
-    static interface B {
-        public default void hello() {
+    interface B {
+        default void hello() {
             System.out.println("Hello from B");
         }
     }
