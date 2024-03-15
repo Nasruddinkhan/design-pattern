@@ -12,7 +12,7 @@ import java.util.function.Supplier;
 /**
  * Common standard functions from the Java API.
  *
- * @author Benjamin Winterberg
+ * @author nasruddin khan
  */
 public class Lambda3 {
 
