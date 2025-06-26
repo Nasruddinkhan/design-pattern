@@ -1,4 +1,4 @@
-package com.mypractice.oops;
+package com.mypractice.oops.cabbooking;
 abstract class User {
     protected String userId;
     protected String name;
@@ -126,7 +126,7 @@ public class CabBooking {
         Location source = new Location(10.0, 20.0);
         Location dest = new Location(12.0, 25.0);
 
-        Ride ride = nasruddin.requestRide(source, dest, RideType.PREMIUM);
+        Ride ride = nasruddin.requestRide(source, dest, RideType.NORMAL);
 
         Driver driver = new Driver("D01", "Ahmed", "8888", new Vehicle("MH12AB1234", "Swift", RideType.PREMIUM));
         driver.acceptRide(ride);
