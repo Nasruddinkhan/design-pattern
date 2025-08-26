@@ -62,6 +62,16 @@ public class SingleLinkedList<T> {
         }
     }
 
+    public T get(int index){
+        if (index < 0 || index > size){
+            throw new IndexOutOfBoundsException(outOfBoundMsg(index));
+        }
+        Node<T> current = head;
+        for (int i = 0; i < index ; i++) {
+            current = current.next;
+        }
+        return current.data;
+    }
     public void addAtIndex(int index, T data){
         if (index < 0 || index > size){
             throw new IndexOutOfBoundsException(outOfBoundMsg(index));
@@ -91,6 +101,7 @@ public class SingleLinkedList<T> {
         singleLinkedList.addFirst("Khan");
         singleLinkedList.addLast("Sufi Khan");
         singleLinkedList.addAtIndex(3, "Jalaluddin khan");
-        singleLinkedList.printList();
+       // singleLinkedList.printList();
+        System.out.println(singleLinkedList.get(0));
     }
 }
