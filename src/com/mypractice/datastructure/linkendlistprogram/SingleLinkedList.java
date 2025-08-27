@@ -60,6 +60,7 @@ public class SingleLinkedList<T> {
             System.out.print(current.data + " -> ");
             current = current.next;
         }
+        System.out.println();
     }
 
     public T get(int index){
@@ -71,6 +72,16 @@ public class SingleLinkedList<T> {
             current = current.next;
         }
         return current.data;
+    }
+
+    public T removeFirst(){
+        if (head == null){
+            throw new RuntimeException("list is empty");
+        }
+        T removalData = head.data;
+         head = head.next;
+         size--;
+        return removalData;
     }
     public void addAtIndex(int index, T data){
         if (index < 0 || index > size){
@@ -90,6 +101,29 @@ public class SingleLinkedList<T> {
         }
         size++;
     }
+
+    private T removeLast() {
+        if (head == null){
+            throw new RuntimeException("list is empty");
+        }
+
+       if (head.next == null){
+           T data = head.data;
+           head = null;
+           size--;
+           return data;
+       }
+
+        Node<T> current = head;
+        while (current.next.next != null) {
+            current = current.next;
+        }
+        T data = current.next.data;
+        current.next = null;
+        size--;
+        return data;
+
+    }
     private String outOfBoundMsg(int index){
         return "Index:"+ index + ",Size:"+size;
     }
@@ -101,7 +135,16 @@ public class SingleLinkedList<T> {
         singleLinkedList.addFirst("Khan");
         singleLinkedList.addLast("Sufi Khan");
         singleLinkedList.addAtIndex(3, "Jalaluddin khan");
-       // singleLinkedList.printList();
+        singleLinkedList.printList();
         System.out.println(singleLinkedList.get(0));
+        singleLinkedList.removeFirst();
+        singleLinkedList.printList();
+        singleLinkedList.removeLast();
+        singleLinkedList.printList();
+
+
     }
+
+
+
 }
