@@ -84,7 +84,7 @@ public class SingleLinkedList<T> {
         return removalData;
     }
     public void addAtIndex(int index, T data){
-        if (index < 0 || index > size){
+        if (index < 0 || index >= size){
             throw new IndexOutOfBoundsException(outOfBoundMsg(index));
         }
         Node<T> newNode = new Node<>(data);
@@ -102,7 +102,7 @@ public class SingleLinkedList<T> {
         size++;
     }
 
-    private T removeLast() {
+    public T removeLast() {
         if (head == null){
             throw new RuntimeException("list is empty");
         }
@@ -124,6 +124,44 @@ public class SingleLinkedList<T> {
         return data;
 
     }
+
+    public T removeByIndex(int index){
+        if (index < 0 || index >= size){
+            throw new IndexOutOfBoundsException(outOfBoundMsg(index));
+        }
+
+        if (index==0){
+            Node<T> headNode = head;
+            T data = headNode.data;
+            head = headNode.next;
+            size--;
+            return data;
+        }
+        Node<T> current = head;
+        for (int i = 0; i < index-1; i++) {
+            current = current.next;
+        }
+        Node<T> previous = current.next;
+        T data = previous.data;
+        current.next = previous.next;
+        size--;
+        return data;
+    }
+
+    public void removeAll(){
+        if (head == null){
+            throw new RuntimeException("list is empty");
+        }
+        Node<T> current = head;
+        while (current != null) {
+            Node<T> next = current.next;
+            current.next = null;
+            current = next;
+        }
+        head = null;
+        size =0;
+
+    }
     private String outOfBoundMsg(int index){
         return "Index:"+ index + ",Size:"+size;
     }
@@ -135,11 +173,14 @@ public class SingleLinkedList<T> {
         singleLinkedList.addFirst("Khan");
         singleLinkedList.addLast("Sufi Khan");
         singleLinkedList.addAtIndex(3, "Jalaluddin khan");
+       // singleLinkedList.printList();
+       // System.out.println(singleLinkedList.get(0));
+       // singleLinkedList.removeFirst();
+        //singleLinkedList.printList();
+       // singleLinkedList.removeLast();
         singleLinkedList.printList();
-        System.out.println(singleLinkedList.get(0));
-        singleLinkedList.removeFirst();
-        singleLinkedList.printList();
-        singleLinkedList.removeLast();
+        singleLinkedList.removeAll();
+      //  System.out.println(singleLinkedList.removeByIndex(2));
         singleLinkedList.printList();
 
 
