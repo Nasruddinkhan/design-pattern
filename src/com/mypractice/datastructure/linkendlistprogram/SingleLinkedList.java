@@ -162,6 +162,39 @@ public class SingleLinkedList<T> {
         size =0;
 
     }
+
+    public void revers(){
+        if (head == null)
+            throw new RuntimeException("list is empty");
+
+        Node<T> prev = null;
+        Node<T> current = head;
+        Node<T> next;
+        while (current != null){
+            next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
+
+        }
+        head = prev;
+    }
+
+    public void reverseRecursive() {
+        head = reverseRecursiveHelper(head);
+    }
+
+    private Node<T> reverseRecursiveHelper(Node<T> node) {
+
+        if (node == null || node.next == null) {
+            return node;
+        }
+
+        Node<T> newHead =  reverseRecursiveHelper(node.next);
+        node.next.next = node;
+        node.next = null;
+        return newHead;
+    }
     private String outOfBoundMsg(int index){
         return "Index:"+ index + ",Size:"+size;
     }
@@ -178,11 +211,14 @@ public class SingleLinkedList<T> {
        // singleLinkedList.removeFirst();
         //singleLinkedList.printList();
        // singleLinkedList.removeLast();
-        singleLinkedList.printList();
-        singleLinkedList.removeAll();
+       // singleLinkedList.printList();
+       // singleLinkedList.removeAll();
       //  System.out.println(singleLinkedList.removeByIndex(2));
         singleLinkedList.printList();
-
+        singleLinkedList.revers();
+        singleLinkedList.printList();
+        singleLinkedList.reverseRecursive();
+        singleLinkedList.printList();
 
     }
 
