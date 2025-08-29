@@ -195,6 +195,18 @@ public class SingleLinkedList<T> {
         node.next = null;
         return newHead;
     }
+
+    public boolean contains(T data){
+
+        Node<T> current = head;
+        while (current != null){
+            if (current.data.equals(data)){
+                return true;
+            }
+            current = current.next;
+        }
+        return false;
+    }
     private String outOfBoundMsg(int index){
         return "Index:"+ index + ",Size:"+size;
     }
@@ -219,6 +231,8 @@ public class SingleLinkedList<T> {
         singleLinkedList.printList();
         singleLinkedList.reverseRecursive();
         singleLinkedList.printList();
+        System.out.println(singleLinkedList.contains("Khan"));
+
 
     }
 
