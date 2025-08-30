@@ -79,7 +79,7 @@ public class SingleLinkedListWithTail<T> {
         if (index==0){
             return head.data;
         }
-        if (index == size ) {
+        if (index == size-1 ) {
             return tail.data;
         }
 
@@ -96,7 +96,7 @@ public class SingleLinkedListWithTail<T> {
             throw new IndexOutOfBoundsException(outOfBoundMsg(index));
         }
 
-        System.out.println("Size "+ size + " Index "+ index);
+        //System.out.println("Size "+ size + " Index "+ index);
        Node<T> newNode = new Node<>(data);
         if (index == 0){
             newNode.next = head;
@@ -181,6 +181,75 @@ public class SingleLinkedListWithTail<T> {
         size--;
         return removeTail.data;
     }
+    public T peekFirst() {
+        if (head == null) throw new RuntimeException("No element found");
+        return head.data;
+    }
+
+    public T peekFipeekLastrst() {
+        if (tail == null) throw new RuntimeException("No element found");
+        return tail.data;
+    }
+    public boolean isEmpty() {
+        return size == 0;
+    }
+    public int size() {
+        return size;
+    }
+    public void clear() {
+        head = null;
+        tail = null;
+        size = 0;
+    }
+    public int indexOf(T data) {
+        Node<T> current = head;
+        int index = 0;
+        while (current != null) {
+            if (current.data.equals(data)) return index;
+            current = current.next;
+            index++;
+        }
+        return -1;
+    }
+
+    public int lastIndexOf(T data) {
+        Node<T> current = head;
+        int index = 0;
+        int lastIndex = -1;
+        while (current != null) {
+            if (current.data.equals(data)) lastIndex = index;
+            current = current.next;
+            index++;
+        }
+        return lastIndex;
+    }
+
+    public boolean contain(T data){
+     if (head == null)  throw new RuntimeException("No element found");
+
+     Node<T> current = head;
+     while (current != null){
+         if (current.data.equals(data)){
+             return true;
+         }
+         current = current.next;
+        }
+     return false;
+    }
+
+    public void reverse(){
+        if (head == null || head.next == null) return;
+        Node<T> prev = null;
+        Node<T> current = head;
+        tail = head;
+        while (current != null){
+            Node<T> nextNode = current.next;
+            current.next = prev;
+            prev = current;
+            current = nextNode;
+        }
+        head = prev;
+    }
     public static void main(String[] args) {
         SingleLinkedListWithTail<String> list = new SingleLinkedListWithTail<>();
         list.add("A"); // head = tail = A
@@ -197,9 +266,11 @@ public class SingleLinkedListWithTail<T> {
         list.addAtIndex(0, "M");
         list.addAtIndex(8, "P");
         list.printAll();
-        list.removeAll();
+       // list.removeAll();
       //  System.out.println(list.removeLast());
-        System.out.println("After remove all");
+        System.out.println(list.contain("M"));
+        list.printAll();
+        list.reverse();
         list.printAll();
     }
 }
