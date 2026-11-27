@@ -14,7 +14,7 @@ public class ExecuteAround {
 
         System.out.println("---");
 
-		String path = "E:/ideaProjects/design-pattern/src/com/mypractice/java8/chap3/data.txt";
+		String path = "src/main/resources/com/mypractice/java8/chap3/data.txt";
 		String oneLine = processFile(BufferedReader::readLine,path );
 		System.out.println(oneLine);
 
@@ -26,7 +26,7 @@ public class ExecuteAround {
 
     public static String processFileLimited() throws IOException {
         try (BufferedReader br =
-                     new BufferedReader(new FileReader("E:/ideaProjects/design-pattern/src/com/mypractice/java8/chap3/data.txt"))) {
+                     new BufferedReader(new FileReader("src/main/resources/com/mypractice/java8/chap3/data.txt"))) {
             return br.readLine();
         }
     }
